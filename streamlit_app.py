@@ -1,7 +1,7 @@
 import plotly.express as px
 import streamlit as st
 
-import db_loader
+from db_loader import db_load
 
 st.set_page_config(
     page_title="Weather Graphs",
@@ -10,4 +10,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.write(db_loader.test("db_loader test"))
+data = db_load()
+
+st.write(len(data))
