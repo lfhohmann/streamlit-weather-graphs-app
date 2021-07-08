@@ -5,15 +5,15 @@ import boto3
 DB_TABLE = "wunderground_pws"
 
 
-aws_config = Config(
-    region_name="us-east-1",
-    signature_version="v4",
-    retries={"max_attempts": 10, "mode": "standard"},
-)
+# aws_config = Config(
+#     region_name="us-east-1",
+#     signature_version="v4",
+#     retries={"max_attempts": 10, "mode": "standard"},
+# )
 
 
 def db_load() -> list:
-    dynamodb = boto3.resource("dynamodb", config=aws_config)
+    dynamodb = boto3.resource("dynamodb")
     table = dynamodb.Table(DB_TABLE)
 
     response = table.scan()
